@@ -23,14 +23,22 @@ declare global {
 const FbxFile = () => {
   const controls = useRef<OrbitControls>();
   const { camera, gl } = useThree();
-  const fbx = useLoader(FBXLoader, '/fbx/hoge.fbx');
-  // const fbx = useLoader(FBXLoader, '/fbx/fuga.fbx');
+  const fbx = useLoader(FBXLoader, '/fbx/booth_sen_small_prototype.fbx');
+  // const fbx = useLoader(FBXLoader, '/fbx/Eventhall_prototype.fbx');
 
   console.log({ fbx });
   // useFrame(() => controls.current.update());
 
   // <orbitControls></orbitControls>
-  return <primitive object={fbx} dispose={null} />;
+  return (
+    <primitive
+      object={fbx}
+      dispose={null}
+      scale={[1, 1, 1]}
+      rotation={[0, 0.2, 0]}
+      position={[50, -165, -350]}
+    />
+  );
 };
 
 const Home = () => {
@@ -40,7 +48,7 @@ const Home = () => {
     >
       <Canvas>
         <ambientLight />
-        <pointLight position={[10, 10, 10]} />
+        <pointLight />
         <Suspense fallback={null}>
           <FbxFile />
         </Suspense>
