@@ -42,13 +42,17 @@ const FbxFile = () => {
 };
 
 const Home = () => {
+  const onMouseMove = () => {
+    console.log('move');
+  };
   return (
-    <div
-      style={{ width: '100vw', height: '100vh', backgroundColor: '#000000' }}
-    >
-      <Canvas>
+    <div style={{ backgroundColor: '#000000' }}>
+      <Canvas
+        onMouseMove={onMouseMove}
+        style={{ width: '100vw', height: '100vh' }}
+      >
         <ambientLight />
-        <pointLight />
+        <pointLight position={[10, 10, 10]} />
         <Suspense fallback={null}>
           <FbxFile />
         </Suspense>
