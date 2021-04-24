@@ -34,9 +34,9 @@ const FbxFile = () => {
     <primitive
       object={fbx}
       dispose={null}
-      scale={[1, 1, 1]}
-      rotation={[0, 0.2, 0]}
-      position={[50, -165, -350]}
+      scale={[0.8, 0.8, 0.8]}
+      rotation={[0, 0.6, 0]}
+      position={[0, -130, -500]}
     />
   );
 };
