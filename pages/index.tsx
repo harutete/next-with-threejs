@@ -1,9 +1,8 @@
-import { useRef, useState, Suspense } from 'react';
+import { useRef, Suspense } from 'react';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import {
   ReactThreeFiber,
   Canvas,
-  useFrame,
   useLoader,
   useThree,
   extend
@@ -23,13 +22,9 @@ declare global {
 const FbxFile = () => {
   const controls = useRef<OrbitControls>();
   const { camera, gl } = useThree();
-  const fbx = useLoader(FBXLoader, '/fbx/booth_sen_small_prototype.fbx');
-  // const fbx = useLoader(FBXLoader, '/fbx/Eventhall_prototype.fbx');
+  const fbx = useLoader(FBXLoader, '/fbx/sample.fbx');
 
   console.log({ fbx });
-  // useFrame(() => controls.current.update());
-
-  // <orbitControls></orbitControls>
   return (
     <primitive
       object={fbx}
