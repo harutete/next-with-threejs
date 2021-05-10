@@ -35,3 +35,6 @@ yarn-error.log*
 
 # fbx
 public/fbx/
+
+# textures
+public/textures/

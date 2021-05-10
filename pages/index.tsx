@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { useRef, Suspense } from 'react';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import {
@@ -36,6 +37,21 @@ const FbxFile = () => {
   );
 };
 
+const clickHandler = () => {
+  console.log('click');
+};
+
+const SampleTexture = () => {
+  const texture = useLoader(THREE.TextureLoader, '/textures/sample01.png');
+
+  return (
+    <mesh onClick={clickHandler} position={[0, -0.1, 0]} rotation={[0, 0.5, 0]}>
+      <planeBufferGeometry attach='geometry' args={[1, 1]} />
+      <meshBasicMaterial attach='material' map={texture} />
+    </mesh>
+  );
+};
+
 const Home = () => {
   const onMouseMove = () => {
     console.log('move');
@@ -49,6 +65,7 @@ const Home = () => {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Suspense fallback={null}>
+          <SampleTexture />
           <FbxFile />
         </Suspense>
       </Canvas>
